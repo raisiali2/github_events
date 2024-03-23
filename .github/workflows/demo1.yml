@@ -1,6 +1,7 @@
 name: Events Demo 1
 on:
 # events activity types give more control over the events when workflow execute
+# or on which sub-events or version of events the workfow trigger and execute
   pull_request:
     types:
       - opened
@@ -12,6 +13,8 @@ on:
       - master
     paths-ignore:
       - '.github/workflows/*'
+    # by setting this filter if we push commit the workflow will not trigger because we set ignore changes in the workflow
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
