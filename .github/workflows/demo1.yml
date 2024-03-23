@@ -1,9 +1,17 @@
 name: Events Demo 1
 on:
+# events activity types give more control over the events when workflow execute
   pull_request:
     types:
       - opened
   workflow_dispatch:
+# event filters givs control to push on specific branch or not push on spercific branch
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
